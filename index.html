@@ -230,6 +230,86 @@
       font-weight: 700;
     }
 
+    .triage {
+      margin: 0 0 1rem;
+      border: 1px solid #d9cdbf;
+      border-radius: var(--radius);
+      background: #fffdf8;
+      box-shadow: var(--shadow);
+      padding: 1rem 1.1rem;
+    }
+
+    .triage h2 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.2rem;
+      color: var(--teal);
+    }
+
+    .triage p {
+      margin: 0.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .triage-grid {
+      margin-top: 0.7rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .triage-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.65rem;
+      background: #ffffff;
+    }
+
+    .triage-card h3 {
+      margin: 0;
+      font-size: 0.98rem;
+      color: var(--ink);
+    }
+
+    .triage-card ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .triage-emergency {
+      background: #fff3f1;
+      border-color: #efc0ba;
+    }
+
+    .triage-emergency h3 {
+      color: #9f2e23;
+    }
+
+    .triage-book {
+      background: #f3faf3;
+      border-color: #c7dfc7;
+    }
+
+    .triage-book h3 {
+      color: #245f3c;
+    }
+
+    .triage-links {
+      margin-top: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--ink);
+    }
+
+    .triage-links a {
+      color: var(--teal);
+      font-weight: 700;
+    }
+
     @media (max-width: 820px) {
       .anchors {
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -251,6 +331,10 @@
 
       .hero {
         padding: 0.95rem;
+      }
+
+      .triage-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -278,7 +362,7 @@
     <header class="hero">
       <h1 class="title">Cedarbrae Eye Doctors: Year-Round Eye Care Map</h1>
       <p class="subtitle">From Cedarbrae Eye Doctors in Scarborough, this page auto-scrolls by 5-minute clock buckets: 00-04 Jan, 05-09 Feb, ... 55-59 Dec.</p>
-      <p class="educational-note"><strong>Educational guidance only:</strong> this page supports prevention and awareness and does not replace a professional eye exam. For emergencies, call 911 right away.</p>
+      <p class="educational-note"><strong>Educational guidance only:</strong> this page supports prevention and awareness and is not for diagnosis or treatment. If you think this is an emergency, go to your nearest hospital emergency department or call 911 right away.</p>
       <p class="local-note">Ontario quick checks: <a href="https://weather.gc.ca/airquality/pages/onaq-001_e.html" target="_blank" rel="noopener noreferrer">Toronto AQHI</a>, <a href="https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/wildfire-smoke.html" target="_blank" rel="noopener noreferrer">Wildfire smoke guidance</a>, <a href="https://www.canada.ca/en/health-canada/services/sun-safety/ultraviolet-index-your-local-forecast.html" target="_blank" rel="noopener noreferrer">UV Index guidance</a>, <a href="https://www.ontario.ca/page/what-ohip-covers" target="_blank" rel="noopener noreferrer">OHIP eye-care eligibility</a>, <a href="https://health811.ontario.ca/static/guest/home" target="_blank" rel="noopener noreferrer">Health811 (call 811)</a>.</p>
       <nav class="anchors" aria-label="Monthly anchors">
         <a href="#january">Jan</a>
@@ -295,6 +379,34 @@
         <a href="#december">Dec</a>
       </nav>
     </header>
+
+    <section class="triage" aria-label="Emergency versus appointment guidance">
+      <h2>When to Book with CED vs. Seek Emergency Care</h2>
+      <p>Some eye problems are time-sensitive and can cause permanent sight loss if treatment is delayed. Use this quick guide for awareness only.</p>
+      <div class="triage-grid">
+        <article class="triage-card triage-emergency">
+          <h3>Seek emergency care now (nearest hospital / 911)</h3>
+          <ul>
+            <li>Sudden vision loss in one or both eyes, even if it improves.</li>
+            <li>New dark curtain/shadow over vision, or sudden flashes with many new floaters.</li>
+            <li>Severe eye pain with red eye, nausea, or vomiting.</li>
+            <li>Eye injury, chemical splash, or sudden eye swelling with vision changes.</li>
+            <li>Sudden double vision with severe headache, weakness, or trouble speaking.</li>
+          </ul>
+        </article>
+        <article class="triage-card triage-book">
+          <h3>Book with Cedarbrae Eye Doctors (same week when possible)</h3>
+          <ul>
+            <li>Gradual blur, glare, eye strain, or night-driving difficulty.</li>
+            <li>Persistent dry, itchy, watery, or irritated eyes without emergency signs.</li>
+            <li>Contact lens discomfort, recurring redness, or frequent styes.</li>
+            <li>Diabetes eye checks, glaucoma/cataract monitoring, and annual exams.</li>
+            <li>Questions about prevention, seasonal triggers, or OHIP eligibility.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="triage-links">If unsure in Ontario: call <a href="tel:811">811</a> or use <a href="https://health811.ontario.ca/static/guest/home" target="_blank" rel="noopener noreferrer">Health811</a>. Reference info: <a href="https://www.nhs.uk/conditions/retinal-detachment/" target="_blank" rel="noopener noreferrer">retinal detachment warning signs</a> and <a href="https://www.nei.nih.gov/learn-about-eye-health/eye-conditions-and-diseases/glaucoma" target="_blank" rel="noopener noreferrer">angle-closure glaucoma emergency symptoms</a>.</p>
+    </section>
 
     <section class="month-grid" aria-label="Monthly eye care sections">
       <article id="january" class="month">
