@@ -150,6 +150,13 @@
       font-family: "Manrope", "Segoe UI", sans-serif;
     }
 
+    .month-jump-hint {
+      display: none;
+      margin: 0.35rem 0 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
     .month-grid {
       display: grid;
       gap: 0.95rem;
@@ -427,6 +434,10 @@
         display: flex;
       }
 
+      .month-jump-hint {
+        display: block;
+      }
+
       .hero {
         padding: 0.95rem;
       }
@@ -479,20 +490,21 @@
       <div class="month-jump">
         <label for="month-select">Jump:</label>
         <select id="month-select" aria-label="Jump to month section">
-          <option value="january">January</option>
-          <option value="february">February</option>
-          <option value="march">March</option>
-          <option value="april">April</option>
-          <option value="may">May</option>
-          <option value="june">June</option>
-          <option value="july">July</option>
-          <option value="august">August</option>
-          <option value="september">September</option>
-          <option value="october">October</option>
-          <option value="november">November</option>
-          <option value="december">December</option>
+          <option value="january">January (00-04)</option>
+          <option value="february">February (05-09)</option>
+          <option value="march">March (10-14)</option>
+          <option value="april">April (15-19)</option>
+          <option value="may">May (20-24)</option>
+          <option value="june">June (25-29)</option>
+          <option value="july">July (30-34)</option>
+          <option value="august">August (35-39)</option>
+          <option value="september">September (40-44)</option>
+          <option value="october">October (45-49)</option>
+          <option value="november">November (50-54)</option>
+          <option value="december">December (55-59)</option>
         </select>
       </div>
+      <p class="month-jump-hint" id="month-jump-hint"></p>
     </header>
 
     <section class="triage" aria-label="Emergency versus appointment guidance">
@@ -698,6 +710,21 @@
       "december"
     ];
 
+    const monthMinuteRanges = {
+      january: "00-04",
+      february: "05-09",
+      march: "10-14",
+      april: "15-19",
+      may: "20-24",
+      june: "25-29",
+      july: "30-34",
+      august: "35-39",
+      september: "40-44",
+      october: "45-49",
+      november: "50-54",
+      december: "55-59"
+    };
+
     const weeklyGuidance = {
       january: {
         focus: "Dry-eye reset for winter indoor air.",
@@ -801,6 +828,20 @@
       return Math.floor(minute / 5);
     }
 
+    function titleCaseMonth(monthId) {
+      return monthId.charAt(0).toUpperCase() + monthId.slice(1);
+    }
+
+    function updateMonthJumpHint(monthId, minute) {
+      const hintEl = document.getElementById("month-jump-hint");
+      if (!hintEl || !monthMinuteRanges[monthId]) {
+        return;
+      }
+
+      const minuteLabel = typeof minute === "number" ? String(minute).padStart(2, "0") : "--";
+      hintEl.textContent = `Minute ${minuteLabel} maps to ${titleCaseMonth(monthId)} (${monthMinuteRanges[monthId]}).`;
+    }
+
     function updateWeeklyBooking(monthId) {
       const guidance = weeklyGuidance[monthId];
       const focusEl = document.getElementById("weekly-focus-text");
@@ -859,6 +900,7 @@
 
       setActiveMonth(targetSection);
       updateWeeklyBooking(targetMonthId);
+      updateMonthJumpHint(targetMonthId, currentMinute);
       if (monthSelect) {
         monthSelect.value = targetMonthId;
       }
@@ -880,6 +922,7 @@
 
       setActiveMonth(targetSection);
       updateWeeklyBooking(monthId);
+      updateMonthJumpHint(monthId, new Date().getMinutes());
 
       if (monthSelect) {
         monthSelect.value = monthId;
