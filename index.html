@@ -81,6 +81,16 @@
       font-size: 0.88rem;
     }
 
+    .educational-note {
+      margin: 0 0 0.85rem;
+      color: #324351;
+      font-size: 0.88rem;
+      background: #eef7ff;
+      border: 1px solid #c8deef;
+      border-radius: 10px;
+      padding: 0.45rem 0.6rem;
+    }
+
     .local-note a {
       color: var(--teal);
       font-weight: 700;
@@ -184,6 +194,42 @@
       box-shadow: 0 0 0 3px rgba(214, 101, 63, 0.18), var(--shadow);
     }
 
+    .contact {
+      margin-top: 1rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: 1rem 1.1rem;
+    }
+
+    .contact h2 {
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.22rem;
+      color: var(--teal);
+    }
+
+    .contact p {
+      margin: 0.5rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .contact ul {
+      margin: 0.65rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .contact a {
+      color: var(--teal);
+      font-weight: 700;
+    }
+
     @media (max-width: 820px) {
       .anchors {
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -232,7 +278,8 @@
     <header class="hero">
       <h1 class="title">Cedarbrae Eye Doctors: Year-Round Eye Care Map</h1>
       <p class="subtitle">From Cedarbrae Eye Doctors in Scarborough, this page auto-scrolls by 5-minute clock buckets: 00-04 Jan, 05-09 Feb, ... 55-59 Dec.</p>
-      <p class="local-note">Ontario quick checks: <a href="https://weather.gc.ca/airquality/pages/onaq-001_e.html" target="_blank" rel="noopener noreferrer">Toronto AQHI</a>, <a href="https://www.canada.ca/en/health-canada/services/sun-safety/ultraviolet-index-your-local-forecast.html" target="_blank" rel="noopener noreferrer">UV Index guidance</a>, <a href="https://www.ontario.ca/page/what-ohip-covers" target="_blank" rel="noopener noreferrer">OHIP eye-care eligibility</a>.</p>
+      <p class="educational-note"><strong>Educational guidance only:</strong> this page supports prevention and awareness and does not replace a professional eye exam. For emergencies, call 911 right away.</p>
+      <p class="local-note">Ontario quick checks: <a href="https://weather.gc.ca/airquality/pages/onaq-001_e.html" target="_blank" rel="noopener noreferrer">Toronto AQHI</a>, <a href="https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/wildfire-smoke.html" target="_blank" rel="noopener noreferrer">Wildfire smoke guidance</a>, <a href="https://www.canada.ca/en/health-canada/services/sun-safety/ultraviolet-index-your-local-forecast.html" target="_blank" rel="noopener noreferrer">UV Index guidance</a>, <a href="https://www.ontario.ca/page/what-ohip-covers" target="_blank" rel="noopener noreferrer">OHIP eye-care eligibility</a>, <a href="https://health811.ontario.ca/static/guest/home" target="_blank" rel="noopener noreferrer">Health811 (call 811)</a>.</p>
       <nav class="anchors" aria-label="Monthly anchors">
         <a href="#january">Jan</a>
         <a href="#february">Feb</a>
@@ -381,6 +428,17 @@
         </ul>
         <p class="why"><strong>Why book at CED:</strong> schedule your annual exam with Cedarbrae Eye Doctors to review cataract, glaucoma, retinal, and dry-eye risk in one visit.</p>
       </article>
+    </section>
+
+    <section class="contact" aria-label="Cedarbrae Eye Doctors contact details">
+      <h2>Book with Cedarbrae Eye Doctors</h2>
+      <p>If your monthly checks raise concerns, Cedarbrae Eye Doctors can help with prevention plans, diagnosis, and treatment in Scarborough.</p>
+      <ul>
+        <li>Website: <a href="https://www.cedarbrae-eye-doctors.com/" target="_blank" rel="noopener noreferrer">www.cedarbrae-eye-doctors.com</a></li>
+        <li>Phone: <a href="tel:+14164312611">416-431-2611</a></li>
+        <li>Location: Cedarbrae Mall, 3495 Lawrence Ave E, Suite 212, Scarborough, ON</li>
+      </ul>
+      <p>CED supports routine eye exams, dry eye care, red-eye assessments, diabetic eye monitoring, and age-related eye health follow-up.</p>
     </section>
   </main>
 
