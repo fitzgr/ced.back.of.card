@@ -75,6 +75,19 @@
       font-size: 0.96rem;
     }
 
+    .local-note {
+      margin: 0 0 0.85rem;
+      color: var(--ink);
+      font-size: 0.88rem;
+    }
+
+    .local-note a {
+      color: var(--teal);
+      font-weight: 700;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 2px;
+    }
+
     .anchors {
       display: grid;
       grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -143,6 +156,29 @@
       font-size: 0.97rem;
     }
 
+    .month ul {
+      margin: 0.6rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .month li::marker {
+      color: var(--accent);
+    }
+
+    .why {
+      margin-top: 0.65rem;
+      color: var(--ink);
+      font-size: 0.93rem;
+      background: #fff6f2;
+      border: 1px solid #f0d6c9;
+      border-radius: 10px;
+      padding: 0.5rem 0.6rem;
+    }
+
     .active {
       border-color: var(--accent);
       box-shadow: 0 0 0 3px rgba(214, 101, 63, 0.18), var(--shadow);
@@ -196,6 +232,7 @@
     <header class="hero">
       <h1 class="title">Cedarbrae Eye Doctors: Year-Round Eye Care Map</h1>
       <p class="subtitle">From Cedarbrae Eye Doctors in Scarborough, this page auto-scrolls to your hour-matched month. Example: 7:00 maps to July.</p>
+      <p class="local-note">Ontario quick checks: <a href="https://weather.gc.ca/airquality/pages/onaq-001_e.html" target="_blank" rel="noopener noreferrer">Toronto AQHI</a>, <a href="https://www.canada.ca/en/health-canada/services/sun-safety/ultraviolet-index-your-local-forecast.html" target="_blank" rel="noopener noreferrer">UV Index guidance</a>, <a href="https://www.ontario.ca/page/what-ohip-covers" target="_blank" rel="noopener noreferrer">OHIP eye-care eligibility</a>.</p>
       <nav class="anchors" aria-label="Monthly anchors">
         <a href="#january">Jan</a>
         <a href="#february">Feb</a>
@@ -215,62 +252,134 @@
     <section class="month-grid" aria-label="Monthly eye care sections">
       <article id="january" class="month">
         <h2>January: Dry Eyes</h2>
-        <p>Cold air, wind, and indoor heat can strip moisture from the eye surface. Increase hydration, use preservative-free tears, and consider a humidifier at night.</p>
+        <p>Cold air and forced-air heating across Scarborough often worsen winter dryness.</p>
+        <ul>
+          <li>Check for burning, gritty sensation, fluctuating vision, or reflex tearing.</li>
+          <li>Check home humidity and run a humidifier in bedrooms if air is very dry.</li>
+          <li>Check drop labels and switch to preservative-free tears for frequent use.</li>
+        </ul>
+        <p class="why"><strong>Why book at CED:</strong> persistent dry eye can be from meibomian gland dysfunction, medication effects, or eyelid disease that needs targeted treatment.</p>
       </article>
 
       <article id="february" class="month">
         <h2>February: Indoor Eye Strain</h2>
-        <p>Long screen hours in darker months can trigger digital fatigue. Follow the 20-20-20 rule, blink fully, and adjust monitor brightness to match room lighting.</p>
+        <p>Indoor work and school screen time peaks in late winter and can drive digital eye strain.</p>
+        <ul>
+          <li>Check for headaches, tired eyes, neck strain, and end-of-day blur.</li>
+          <li>Check your setup: screen at arm's length, top of monitor near eye level.</li>
+          <li>Check blink habits with the 20-20-20 rule and frequent full blinks.</li>
+        </ul>
+        <p class="why"><strong>Why book at CED:</strong> a glasses or contact lens update plus dry-eye support can reduce daily strain and improve focus comfort.</p>
       </article>
 
       <article id="march" class="month">
         <h2>March: Early Allergies</h2>
-        <p>As early allergens rise, itchy and watery eyes become common. Start allergy eye drops early, avoid rubbing, and rinse lids after outdoor time.</p>
+        <p>Early spring triggers can begin before full bloom, especially with windy days.</p>
+        <ul>
+          <li>Check for itch, redness, tearing, and light sensitivity after outdoor exposure.</li>
+          <li>Check that symptoms are in both eyes; one painful red eye needs urgent assessment.</li>
+          <li>Check pollen timing and keep windows closed on high-count days.</li>
+        </ul>
+        <p class="why"><strong>Why book at CED:</strong> CED can distinguish allergy from infection or dry eye and recommend the safest drop plan for your eyes.</p>
       </article>
 
       <article id="april" class="month">
         <h2>April: Tree Pollen</h2>
-        <p>Tree pollen peaks can inflame sensitive eyes. Keep windows closed on high-count days, shower after being outside, and use cold compresses for relief.</p>
+        <p>Tree pollen in the GTA commonly peaks in spring and can inflame the ocular surface.</p>
+        <ul>
+          <li>Check for morning itch and swollen lids after commuting or yard activity.</li>
+          <li>Check lens comfort; consider glasses on high-pollen days.</li>
+          <li>Check post-outdoor routine: shower, eyelid rinse, and clean pillowcases.</li>
+        </ul>
+        <p class="why"><strong>Why book at CED:</strong> unmanaged allergy can destabilize contact lens wear and mimic other conditions that need different treatment.</p>
       </article>
 
       <article id="may" class="month">
         <h2>May: UV Protection</h2>
-        <p>Longer, brighter days mean more UV exposure. Wear quality sunglasses with UV400 protection and a brimmed hat during midday activities.</p>
+        <p>Longer daylight means more cumulative UV exposure while driving and outdoors.</p>
+        <ul>
+          <li>Check sunglasses for UVA/UVB coverage and comfortable wraparound fit.</li>
+          <li>Check your local UV Index before outdoor sports and school pickup hours.</li>
+          <li>Check children and teens have reliable eye sun protection every day.</li>
+        </ul>
+        <p class="why"><strong>Why book at CED:</strong> CED can help choose protective lenses and monitor UV-related eye changes over time.</p>
       </article>
 
       <article id="june" class="month">
         <h2>June: Chlorine and Irritation</h2>
-        <p>Pool season can irritate eyes due to chlorine and debris. Wear swim goggles, rinse eyes after swimming, and avoid sleeping in contact lenses.</p>
+        <p>Pool and splash-pad season can trigger irritation, especially for contact lens wearers.</p>
+        <ul>
+          <li>Check for redness that lasts more than a few hours after swimming.</li>
+          <li>Check goggle fit and avoid exposing contact lenses to pool or lake water.</li>
+          <li>Check for pain, light sensitivity, or blurred vision after water exposure.</li>
+        </ul>
+        <p class="why"><strong>Why book at CED:</strong> water-related irritation can become infection quickly; early care protects vision and comfort.</p>
       </article>
 
       <article id="july" class="month">
         <h2>July: Summer Dryness and Dehydration</h2>
-        <p>Heat, wind, and air conditioning can worsen dryness. Keep water intake up, use lubricating drops before outdoor activity, and take shade breaks.</p>
+        <p>Heat, wind, and car or office AC can accelerate tear evaporation.</p>
+        <ul>
+          <li>Check for dryness during long drives, patio time, and air-conditioned spaces.</li>
+          <li>Check hydration and carry preservative-free lubricating drops when outdoors.</li>
+          <li>Check if vision clears with blinking; that pattern suggests tear-film instability.</li>
+        </ul>
+        <p class="why"><strong>Why book at CED:</strong> CED can map dry-eye severity and build a stepwise plan before symptoms become chronic.</p>
       </article>
 
       <article id="august" class="month">
         <h2>August: Travel and Contact Lens Hygiene</h2>
-        <p>Travel routines can lead to shortcut lens habits. Pack backup glasses, never top off old lens solution, and wash hands before lens handling.</p>
+        <p>Late-summer travel often disrupts routine lens care and sleep schedules.</p>
+        <ul>
+          <li>Check that you replace lens cases every three months and never top off old solution.</li>
+          <li>Check you have backup glasses in carry-on and beach bags.</li>
+          <li>Check for red-eye warning signs after flights, camping, or poor sleep.</li>
+        </ul>
+        <p class="why"><strong>Why book at CED:</strong> if contacts become uncomfortable, an exam can rule out corneal irritation before it escalates.</p>
       </article>
 
       <article id="september" class="month">
         <h2>September: Back-to-School Screen Time</h2>
-        <p>Study demands and device use can increase eye fatigue. Encourage frequent visual breaks, proper reading distance, and annual pediatric eye checks.</p>
+        <p>School and work routines return, and near-work demand rises sharply.</p>
+        <ul>
+          <li>Check for squinting, short attention span in reading, or complaints of board blur.</li>
+          <li>Check homework ergonomics: lighting, screen distance, and posture.</li>
+          <li>Check whether annual family eye exams are up to date in Ontario.</li>
+        </ul>
+        <p class="why"><strong>Why book at CED:</strong> early correction supports learning, confidence, and reduced fatigue for students and parents alike.</p>
       </article>
 
       <article id="october" class="month">
         <h2>October: Fall Allergens and Air Quality</h2>
-        <p>Ragweed and fluctuating air quality can flare irritation. Use wraparound eyewear outdoors and maintain clean home air filters as seasons shift.</p>
+        <p>Ragweed and variable air quality can prolong irritation into mid-fall.</p>
+        <ul>
+          <li>Check Toronto AQHI before longer outdoor exercise or commuting.</li>
+          <li>Check home filters and reduce indoor irritants as heating systems restart.</li>
+          <li>Check for burning or watering when AQHI rises or smoke drifts into the area.</li>
+        </ul>
+        <p class="why"><strong>Why book at CED:</strong> CED can separate allergy, dryness, and environmental irritation and personalize treatment timing.</p>
       </article>
 
       <article id="november" class="month">
         <h2>November: Early Darkness and Glare</h2>
-        <p>Lower sun angles and dark commutes can intensify glare. Keep windshields clean, update lens coatings as needed, and report night-vision changes promptly.</p>
+        <p>Low-angle sun and darker commutes can expose vision quality issues quickly.</p>
+        <ul>
+          <li>Check for halos, starbursts, or poor contrast during evening driving.</li>
+          <li>Check glasses coatings and windshield cleanliness to reduce glare scatter.</li>
+          <li>Check diabetes and blood-pressure follow-up if vision fluctuates.</li>
+        </ul>
+        <p class="why"><strong>Why book at CED:</strong> new night-vision symptoms can be an early sign of cataract or retinal issues that benefit from prompt review.</p>
       </article>
 
       <article id="december" class="month">
         <h2>December: Dry Eye and Age Concerns</h2>
-        <p>Winter dryness plus age-related changes can impact comfort and clarity. Schedule year-end exams with Cedarbrae Eye Doctors, review medications, and discuss cataract or macular risk factors.</p>
+        <p>Winter dryness plus age-related risks make year-end eye checks especially valuable.</p>
+        <ul>
+          <li>Check for reading-light dependence, fading contrast, or slower adaptation at night.</li>
+          <li>Check medication lists for dryness side effects and bring updates to your exam.</li>
+          <li>Check OHIP eligibility by age or medical condition before booking in Ontario.</li>
+        </ul>
+        <p class="why"><strong>Why book at CED:</strong> schedule your annual exam with Cedarbrae Eye Doctors to review cataract, glaucoma, retinal, and dry-eye risk in one visit.</p>
       </article>
     </section>
   </main>
