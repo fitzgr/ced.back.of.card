@@ -832,12 +832,14 @@
 
     function scrollMonthIntoView(targetSection) {
       const hero = document.querySelector(".hero");
-      let offset = 12;
+      let offset = 8;
 
       if (hero) {
+        const heroRect = hero.getBoundingClientRect();
         const heroStyle = window.getComputedStyle(hero);
+
         if (heroStyle.position === "sticky" || heroStyle.position === "fixed") {
-          offset += hero.getBoundingClientRect().height;
+          offset = heroRect.top + heroRect.height + 6;
         }
       }
 
