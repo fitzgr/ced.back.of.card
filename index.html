@@ -830,6 +830,21 @@
       targetSection.classList.add("active");
     }
 
+    function scrollMonthIntoView(targetSection) {
+      const hero = document.querySelector(".hero");
+      let offset = 12;
+
+      if (hero) {
+        const heroStyle = window.getComputedStyle(hero);
+        if (heroStyle.position === "sticky" || heroStyle.position === "fixed") {
+          offset += hero.getBoundingClientRect().height;
+        }
+      }
+
+      const targetTop = targetSection.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top: Math.max(targetTop, 0), behavior: "smooth" });
+    }
+
     function scrollToCurrentMinuteMonth() {
       const currentMinute = new Date().getMinutes();
       const targetMonthId = monthIds[monthIndexFromMinute(currentMinute)];
@@ -845,7 +860,7 @@
       if (monthSelect) {
         monthSelect.value = targetMonthId;
       }
-      targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      scrollMonthIntoView(targetSection);
       history.replaceState(null, "", `#${targetMonthId}`);
     }
 
@@ -869,7 +884,7 @@
       }
 
       if (shouldScroll) {
-        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        scrollMonthIntoView(targetSection);
         history.replaceState(null, "", `#${monthId}`);
       }
     }
