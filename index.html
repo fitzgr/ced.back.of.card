@@ -231,7 +231,7 @@
   <main class="page">
     <header class="hero">
       <h1 class="title">Cedarbrae Eye Doctors: Year-Round Eye Care Map</h1>
-      <p class="subtitle">From Cedarbrae Eye Doctors in Scarborough, this page auto-scrolls to your hour-matched month. Example: 7:00 maps to July.</p>
+      <p class="subtitle">From Cedarbrae Eye Doctors in Scarborough, this page auto-scrolls by 5-minute clock buckets: 00-04 Jan, 05-09 Feb, ... 55-59 Dec.</p>
       <p class="local-note">Ontario quick checks: <a href="https://weather.gc.ca/airquality/pages/onaq-001_e.html" target="_blank" rel="noopener noreferrer">Toronto AQHI</a>, <a href="https://www.canada.ca/en/health-canada/services/sun-safety/ultraviolet-index-your-local-forecast.html" target="_blank" rel="noopener noreferrer">UV Index guidance</a>, <a href="https://www.ontario.ca/page/what-ohip-covers" target="_blank" rel="noopener noreferrer">OHIP eye-care eligibility</a>.</p>
       <nav class="anchors" aria-label="Monthly anchors">
         <a href="#january">Jan</a>
@@ -400,15 +400,13 @@
       "december"
     ];
 
-    function monthIndexFromHour(hour) {
-      const normalized = hour % 12;
-      const monthNumber = normalized === 0 ? 12 : normalized;
-      return monthNumber - 1;
+    function monthIndexFromMinute(minute) {
+      return Math.floor(minute / 5);
     }
 
-    function scrollToCurrentHourMonth() {
-      const currentHour = new Date().getHours();
-      const targetMonthId = monthIds[monthIndexFromHour(currentHour)];
+    function scrollToCurrentMinuteMonth() {
+      const currentMinute = new Date().getMinutes();
+      const targetMonthId = monthIds[monthIndexFromMinute(currentMinute)];
       const targetSection = document.getElementById(targetMonthId);
 
       if (!targetSection) {
@@ -420,9 +418,7 @@
       history.replaceState(null, "", `#${targetMonthId}`);
     }
 
-    window.addEventListener("load", () => {
-      window.setTimeout(scrollToCurrentHourMonth, 220);
-    });
+    window.addEventListener("DOMContentLoaded", scrollToCurrentMinuteMonth);
   </script>
 </body>
 </html>
