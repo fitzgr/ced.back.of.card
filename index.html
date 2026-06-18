@@ -124,6 +124,31 @@
       outline: none;
     }
 
+    .month-jump {
+      display: none;
+      margin-top: 0.55rem;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .month-jump label {
+      font-size: 0.86rem;
+      color: var(--muted);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .month-jump select {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 0.42rem 0.75rem;
+      font-size: 0.88rem;
+      font-family: "Manrope", "Segoe UI", sans-serif;
+    }
+
     .month-grid {
       display: grid;
       gap: 0.95rem;
@@ -394,7 +419,11 @@
 
     @media (max-width: 560px) {
       .anchors {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        display: none;
+      }
+
+      .month-jump {
+        display: flex;
       }
 
       .hero {
@@ -446,6 +475,23 @@
         <a href="#november">Nov</a>
         <a href="#december">Dec</a>
       </nav>
+      <div class="month-jump">
+        <label for="month-select">Jump:</label>
+        <select id="month-select" aria-label="Jump to month section">
+          <option value="january">January</option>
+          <option value="february">February</option>
+          <option value="march">March</option>
+          <option value="april">April</option>
+          <option value="may">May</option>
+          <option value="june">June</option>
+          <option value="july">July</option>
+          <option value="august">August</option>
+          <option value="september">September</option>
+          <option value="october">October</option>
+          <option value="november">November</option>
+          <option value="december">December</option>
+        </select>
+      </div>
     </header>
 
     <section class="triage" aria-label="Emergency versus appointment guidance">
@@ -787,6 +833,7 @@
       const currentMinute = new Date().getMinutes();
       const targetMonthId = monthIds[monthIndexFromMinute(currentMinute)];
       const targetSection = document.getElementById(targetMonthId);
+      const monthSelect = document.getElementById("month-select");
 
       if (!targetSection) {
         return;
@@ -794,22 +841,36 @@
 
       setActiveMonth(targetSection);
       updateWeeklyBooking(targetMonthId);
+      if (monthSelect) {
+        monthSelect.value = targetMonthId;
+      }
       targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
       history.replaceState(null, "", `#${targetMonthId}`);
     }
 
-    function setMonthFromAnchor(monthId) {
+    function setMonthFromAnchor(monthId, shouldScroll) {
       if (!monthIds.includes(monthId)) {
         return;
       }
 
       const targetSection = document.getElementById(monthId);
+      const monthSelect = document.getElementById("month-select");
+
       if (!targetSection) {
         return;
       }
 
       setActiveMonth(targetSection);
       updateWeeklyBooking(monthId);
+
+      if (monthSelect) {
+        monthSelect.value = monthId;
+      }
+
+      if (shouldScroll) {
+        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        history.replaceState(null, "", `#${monthId}`);
+      }
     }
 
     window.addEventListener("DOMContentLoaded", () => {
@@ -818,9 +879,16 @@
       document.querySelectorAll(".anchors a").forEach((anchor) => {
         anchor.addEventListener("click", () => {
           const monthId = anchor.getAttribute("href").replace("#", "");
-          setMonthFromAnchor(monthId);
+          setMonthFromAnchor(monthId, false);
         });
       });
+
+      const monthSelect = document.getElementById("month-select");
+      if (monthSelect) {
+        monthSelect.addEventListener("change", () => {
+          setMonthFromAnchor(monthSelect.value, true);
+        });
+      }
     });
   </script>
 </body>
