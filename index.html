@@ -70,6 +70,34 @@
       letter-spacing: 0.01em;
     }
 
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-book-btn {
+      text-decoration: none;
+      color: #ffffff;
+      background: var(--accent);
+      border: 1px solid #b64f2f;
+      border-radius: 999px;
+      padding: 0.42rem 0.85rem;
+      font-size: 0.86rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: transform 180ms ease, filter 180ms ease;
+    }
+
+    .hero-book-btn:hover,
+    .hero-book-btn:focus-visible {
+      transform: translateY(-1px);
+      filter: brightness(0.97);
+      outline: none;
+    }
+
     .subtitle {
       margin: 0.35rem 0 0.8rem;
       color: var(--muted);
@@ -442,6 +470,15 @@
         padding: 0.95rem;
       }
 
+      .hero-top {
+        align-items: stretch;
+      }
+
+      .hero-book-btn {
+        width: 100%;
+        text-align: center;
+      }
+
       .triage-grid {
         grid-template-columns: 1fr;
       }
@@ -469,7 +506,10 @@
 <body>
   <main class="page">
     <header class="hero">
-      <h1 class="title">Cedarbrae Eye Doctors: Year-Round Eye Care Map</h1>
+      <div class="hero-top">
+        <h1 class="title">Cedarbrae Eye Doctors: Year-Round Eye Care Map</h1>
+        <a class="hero-book-btn" href="tel:+14164312611">Book an Appointment</a>
+      </div>
       <p class="subtitle">From Cedarbrae Eye Doctors in Scarborough, this page auto-scrolls by 5-minute clock buckets: 00-04 Jan, 05-09 Feb, ... 55-59 Dec.</p>
       <p class="educational-note"><strong>Educational guidance only:</strong> this page supports prevention and awareness and is not for diagnosis or treatment. If you think this is an emergency, go to your nearest hospital emergency department or call 911 right away.</p>
       <p class="local-note">Ontario quick checks: <a href="https://weather.gc.ca/airquality/pages/onaq-001_e.html" target="_blank" rel="noopener noreferrer">Toronto AQHI</a>, <a href="https://www.canada.ca/en/environment-climate-change/services/air-quality-health-index/wildfire-smoke.html" target="_blank" rel="noopener noreferrer">Wildfire smoke guidance</a>, <a href="https://www.canada.ca/en/health-canada/services/sun-safety/ultraviolet-index-your-local-forecast.html" target="_blank" rel="noopener noreferrer">UV Index guidance</a>, <a href="https://www.ontario.ca/page/what-ohip-covers" target="_blank" rel="noopener noreferrer">OHIP eye-care eligibility</a>, <a href="https://health811.ontario.ca/static/guest/home" target="_blank" rel="noopener noreferrer">Health811 (call 811)</a>.</p>
